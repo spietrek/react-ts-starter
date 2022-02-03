@@ -1,0 +1,53 @@
+{
+  "env": {
+    "browser": true,
+    "jest": true,
+    "amd": true,
+    "node": true,
+    "es6": true
+  },
+  "extends": [
+    "react-app",
+    "react-app/jest",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2021,
+    "sourceType": "module"
+  },
+  "plugins": ["jsx-a11y", "react", "@typescript-eslint", "prettier"],
+  "rules": {
+    "jsx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/alt-text": "off",
+    "prettier/prettier": [
+      "warn",
+      {
+        "htmlWhitespaceSensitivity": "strict",
+        "semi": true,
+        "singleQuote": true
+      }
+    ],
+    "react/jsx-filename-extension": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/no-unescaped-entities": "error",
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "import/no-cycle": "off",
+    "import/no-anonymous-default-export": "off",
+    "import/no-extraneous-dependencies": "off",
+    "no-debugger": "warn",
+    "no-console": "off",
+    "no-plusplus": "off",
+    "no-shadow": "off"
+  }
+}
