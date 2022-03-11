@@ -6,7 +6,10 @@ public/
 build/
 dist/
 
+public/index.html
 src/reportWebVitals.ts
 src/setupTests.ts
 craco.config.js
+postcss.config.js
 tailwind.config.js
+vite.config.js

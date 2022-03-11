@@ -3,13 +3,11 @@ import clsx from 'clsx'
 import Counter from './Counter'
 import CounterTitle from './CounterTitle'
 import CounterReducer from './CounterReducer'
-import MenuReducer from './MenuReducer'
 
 const EXAMPLES = {
   Counter,
   CounterTitle,
   CounterReducer,
-  MenuReducer,
 }
 
 type Examples = keyof typeof EXAMPLES

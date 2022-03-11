@@ -23,13 +23,13 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 2021,
+    "ecmaVersion": 12,
     "sourceType": "module",
-    "project": "tsconfig.json"
+    "project": "./tsconfig.json"
   },
   "settings": {
     "react": {
-      "version": "999.999.999"
+      "version": "detect"
     }
   },
   "plugins": [
@@ -41,11 +41,22 @@
     "prettier"
   ],
   "rules": {
+    "@typescript-eslint/camelcase": "off",
     "@typescript-eslint/consistent-type-assertions": "off",
     "@typescript-eslint/explicit-function-return-type": "warn",
-    "@typescript-eslint/no-use-before-define": "error",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    // "@typescript-eslint/no-floating-promises": "warn",
+    // "@typescript-eslint/no-unnecessary-condition": "warn",
+    // "@typescript-eslint/no-unsafe-assignment": "warn",
+    // "@typescript-eslint/no-unsafe-call": "warn",
+    "@typescript-eslint/no-unsafe-member-access": "warn",
+    // "@typescript-eslint/no-unsafe-return": "warn",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/no-use-before-define": "warn",
+    "@typescript-eslint/promise-function-async": "off",
     "@typescript-eslint/space-before-function-paren": "off",
     "@typescript-eslint/triple-slash-reference": "off",
+    // "@typescript/no-unsafe-member-access": "off",
     "comma-dangle": [
       "error",
       {
@@ -66,6 +77,8 @@
       }
     ],
     "jsx-quotes": ["error", "prefer-double"],
+    "max-lines": ["warn", { "max": 300 }],
+    "max-params": ["warn", { "max": 5 }],
     "multiline-ternary": "off",
     "no-debugger": "warn",
     "no-console": "off",
@@ -80,6 +93,7 @@
         "htmlWhitespaceSensitivity": "strict",
         "arrowParens": "avoid",
         "bracketSpacing": true,
+        "endOfLine": "auto",
         "jsxSingleQuote": false,
         "printWidth": 80,
         "semi": false,
@@ -116,18 +130,14 @@
   },
   "overrides": [
     {
-      "files": ["*.ts", "*.tsx"], // Your TypeScript files extension
-
-      // As mentioned in the comments, you should extend TypeScript plugins here,
-      // instead of extending them outside the `overrides`.
-      // If you don't want to extend any rules, you don't need an `extends` attribute.
-      "extends": [
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking"
-      ],
-
-      "parserOptions": {
-        "project": ["./tsconfig.json"] // Specify it only for TypeScript files
+      "files": ["*.spec.ts", "**/testing/**/*.ts"],
+      "rules": {
+        "@typescript-eslint/camelcase": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-floating-promises": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "consistent-return": "off",
+        "max-lines": "off"
       }
     }
   ]
