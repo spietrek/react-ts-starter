@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useLifecycleEffect } from './hooks/UseLifecycleEffectHook'
+import { useLifecycleEffect } from '@/hooks/UseLifecycleEffectHook'
 
 const CounterTitle = (): JSX.Element => {
   const initDocTitle = 'React Starter Project'
@@ -17,17 +17,17 @@ const CounterTitle = (): JSX.Element => {
   )
 
   return (
-    <div className="">
+    <div>
       <p className="tw-mb-4">You clicked {count} times</p>
 
       <button
-        className="tw-btn tw-btn-accent tw-btn-outline tw-btn-sm tw-mx-1"
+        className="tw-btn tw-btn-outline tw-btn-accent tw-btn-sm tw-mx-1"
         onClick={() => setCount(count + 1)}
       >
         Increment
       </button>
       <button
-        className="tw-btn tw-btn-accent tw-btn-outline tw-btn-sm tw-mx-1"
+        className="tw-btn tw-btn-outline tw-btn-accent tw-btn-sm tw-mx-1"
         onClick={() => setCount(count - 1)}
       >
         Decrement

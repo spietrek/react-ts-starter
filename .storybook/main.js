@@ -3,14 +3,6 @@ const path = require('path')
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
-    {
-      name: '@storybook/addon-postcss',
-      options: {
-        postcssLoaderOptions: {
-          implementation: require('postcss'),
-        },
-      },
-    },
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/preset-create-react-app',
@@ -21,7 +13,6 @@ module.exports = {
     builder: 'webpack5',
   },
   webpackFinal: async config => {
-    config.resolve.alias['~storybook'] = path.resolve(__dirname)
     config.resolve.alias['@'] = path.resolve(__dirname, '..', 'src')
 
     return config

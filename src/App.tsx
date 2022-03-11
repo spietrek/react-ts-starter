@@ -1,48 +1,15 @@
-import { useState } from 'react'
-import clsx from 'clsx'
-import Counter from './Counter'
-import CounterTitle from './CounterTitle'
-import CounterReducer from './CounterReducer'
+import RootComponent from './RootComponent'
+import { store } from './store'
+import { Provider } from 'react-redux'
+import './styles/index.css'
+import { AuthProvider } from '@/hooks/UseAuth'
 
-const EXAMPLES = {
-  Counter,
-  CounterTitle,
-  CounterReducer,
-}
-
-type Examples = keyof typeof EXAMPLES
-
-const EXAMPLE_NAMES = Object.keys(EXAMPLES) as Examples[]
-
-const App = (): JSX.Element => {
-  const [example, setExample] = useState<Examples>('Counter')
-
-  // eslint-disable-next-line security/detect-object-injection
-  const ExampleComponent = EXAMPLES[example]
-
-  const exampleButtons = EXAMPLE_NAMES.map(name => (
-    <button
-      key={name}
-      onClick={() => setExample(name)}
-      className={clsx('tw-btn', 'tw-btn-accent', 'tw-btn-sm', 'tw-mx-2', {
-        'tw-btn-active': name === example,
-      })}
-    >
-      &lt;
-      {name} /&gt;
-    </button>
-  ))
-  return (
-    <div className="tw-container tw-mx-auto">
-      <div className="tw-flex tw-items-center tw-justify-center tw-min-h-screen">
-        <div className="tw-text-center tw-py-16 tw-px-4 tw-w-[900px] tw-bg-slate-500 tw-rounded-md tw-shadow-3xl">
-          {exampleButtons}
-          <div className="tw-divider" />
-          <ExampleComponent />
-        </div>
-      </div>
-    </div>
-  )
-}
+const App = (): JSX.Element => (
+  <Provider store={store}>
+    <AuthProvider>
+      <RootComponent />
+    </AuthProvider>
+  </Provider>
+)
 
 export default App

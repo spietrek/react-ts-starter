@@ -1,6 +1,5 @@
 import { Button } from './Button'
 import './header.css'
-
 interface HeaderProps {
   user?: Record<string, never>
   onLogin: () => void
