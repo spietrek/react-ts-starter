@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
-import { useCounter } from '@/hooks/UseCounter'
-import { useToggle } from '@/hooks/UseToggle'
+import useCounter from '@/hooks/useCounter'
+import useToggle from '@/hooks/useToggle'
 
 const simulateProcessing = (iterations: number): string => {
   for (let i = 0; i < iterations; i++) {
@@ -10,7 +10,7 @@ const simulateProcessing = (iterations: number): string => {
 }
 
 const UseMemo = (): JSX.Element => {
-  const [count, increment] = useCounter(500)
+  const { count, increment } = useCounter(500)
   const [show, setShow] = useToggle(true)
 
   const memoProcess = useMemo(() => simulateProcessing(count), [count])

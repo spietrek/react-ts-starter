@@ -1,14 +1,17 @@
-import RootComponent from './RootComponent'
-import { store } from './store'
 import { Provider } from 'react-redux'
+import { store } from './store'
+import { BrowserRouter } from 'react-router-dom'
+import { AuthProvider } from '@/hooks/useAuth'
+import AppRoutes from '@/routes'
 import './styles/index.css'
-import { AuthProvider } from '@/hooks/UseAuth'
 
 const App = (): JSX.Element => (
   <Provider store={store}>
-    <AuthProvider>
-      <RootComponent />
-    </AuthProvider>
+    <BrowserRouter>
+      <AuthProvider>
+        <AppRoutes />
+      </AuthProvider>
+    </BrowserRouter>
   </Provider>
 )
 
